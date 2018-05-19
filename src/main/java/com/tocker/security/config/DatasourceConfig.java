@@ -19,7 +19,7 @@ import javax.sql.DataSource;
 @PropertySource(
         ignoreResourceNotFound = true,
         value = {
-                "classpath:/properties/database.properties"
+                "file:/Data/properties/database.properties"
         }
 )
 @EntityScan(basePackages = {"com.tocker.security.domain"})
