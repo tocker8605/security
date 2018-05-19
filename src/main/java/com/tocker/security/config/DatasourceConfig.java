@@ -30,20 +30,20 @@ public class DatasourceConfig {
 
     @Bean(name="dataSource")
     @ConfigurationProperties(prefix="datasource")
-    public DataSource socialDataSource() {
+    public DataSource dataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder) {
         return builder
-                .dataSource(socialDataSource())
+                .dataSource(dataSource())
                 .packages("com.tocker.security.domain")
                 .build();
     }
 
     @Bean(name="transactionManager")
-    public PlatformTransactionManager socialTransactionManager(@Qualifier("entityManagerFactory") LocalContainerEntityManagerFactoryBean entityManagerFactory) {
+    public PlatformTransactionManager transactionManager(@Qualifier("entityManagerFactory") LocalContainerEntityManagerFactoryBean entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory.getObject());
     }
 
