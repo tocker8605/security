@@ -3,6 +3,7 @@ package com.tocker.security.auth;
 import com.tocker.security.domain.Account;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 
@@ -35,9 +36,9 @@ public class MyUserDetails extends User {
 
         list.add(new SimpleGrantedAuthority(RoleType.USER.toString()));
 
-        if (role != null) {
-            list.add(new SimpleGrantedAuthority(role));
-        }
+//        if (role != null) {
+//            list.add(new SimpleGrantedAuthority(role));
+//        }
 
         return list;
     }

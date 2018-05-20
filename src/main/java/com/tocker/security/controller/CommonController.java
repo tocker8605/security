@@ -11,8 +11,14 @@ public class CommonController {
 
     @GetMapping
     @ResponseBody
-    public Object home() throws Exception {
+    public Object home() {
         return "hello";
+    }
+
+    @GetMapping("/inside")
+    @ResponseBody
+    public Object inside() {
+        return "hello inside";
     }
 
 }
